@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::main})">
+<head>
+<meta charset="UTF-8" />
+</head>
+<title></title>
+<body>
+	<main class="container">
+		<div class="row">
+			<div class="div col-md-6 offset-md-3">
+				<div class="card mt-4 bg-info">
+					<div class="card-body">
+
+						<div class="card">
+							<div class="card-body">
+
+								<div
+									class="card-header text-center text-white bg-primary rounded-pill">
+									<u><h5>Verify OTP</h5></u>
+								</div>
+								<hr />
+
+								<form action="#" th:action="@{/verifyOtpProcess}"
+									method="post">
+
+									<div class="mb-3 text-center">
+										<label for="otp" class="form-label ">Pls Enter The Given OTP.. </label> <input
+											type="number" class="form-control" name="otp"
+											id="otp" placeholder=" Otp...">
+									</div>
+
+									<hr />
+									<div class="container text-center">
+
+										<button type="submit" class="btn btn-primary">Change</button>
+
+										<button type="reset" class="btn btn-warning">Reset</button>
+
+									</div>
+
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</main>
+
+
+</body>
+</html>

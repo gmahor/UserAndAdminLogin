@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"
+		th:fragment="nav1">
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarTogglerDemo03"
+			aria-controls="navbarTogglerDemo03" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand" href="#">Shop</a>
+
+		<div class="collapse navbar-collapse justify-content-end"
+			id="navbarTogglerDemo03">
+			<ul class="navbar-nav">
+
+				<th:block th:if="${user}">
+
+					<th:block th:if="${user.role == 'ROLE_ADMIN'}">
+
+						<li class="nav-item active"><a class="nav-link" href="#"
+							th:href="@{/admin/adminDashboard}">Dashboard <span
+								class="sr-only">(current)</span>
+						</a></li>
+
+						<li class="nav-item"><a class="nav-link" href="#"
+							th:href="@{/admin/allAdmin}">All User</a></li>
+
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle text-success" href="#"
+							id="navbarDropdown" role="button" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false"><i
+								class="fas fa-user-alt"></i> <span th:text="${user.username}"></span>
+						</a>
+							<div class="dropdown-menu dropdown-menu-right mt-2 bg-dark"
+								aria-labelledby="navbarDropdown">
+								<a class="dropdown-item text-primary" href="#"
+									th:href="@{/admin/changePassword}">Change Password</a> <a
+									class="dropdown-item text-info" href="#">Another action</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item text-warning" href="#"
+									th:href="@{/logout}"><i
+									class="fas fa-sign-out-alt text-danger"></i> Logout</a>
+							</div></li>
+
+
+
+					</th:block>
+
+					<th:block th:if="${user.role == 'ROLE_USER'}">
+
+						<li class="nav-item active"><a class="nav-link" href="#"
+							th:href="@{/user/userDashboard}">Dashboard <span
+								class="sr-only">(current)</span>
+						</a></li>
+
+
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle text-success" href="#"
+							id="navbarDropdown" role="button" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false"><i
+								class="fas fa-user-alt"></i> <span th:text="${user.username}"></span>
+						</a>
+							<div class="dropdown-menu dropdown-menu-right mt-2 bg-dark"
+								aria-labelledby="navbarDropdown">
+								<a class="dropdown-item text-info" href="#">Another action</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item text-info" href="#" th:href="@{/logout}"><i
+									class="fas fa-sign-out-alt text-danger"></i> Logout</a>
+							</div></li>
+
+					</th:block>
+
+				</th:block>
+
+
+				<th:block th:unless="${user}">
+
+
+					<li class="nav-item active"><a class="nav-link" href="#"
+						th:href="@{/}"><span class="btn btn-info rounded-pill"><i
+								class="fas fa-home"></i> Home</span> <span class="sr-only">(current)</span>
+					</a></li>
+
+
+					<li class="nav-item"><a class="nav-link" href="#"
+						th:href="@{/login}"><span class="btn btn-info rounded-pill"><i
+								class="fas fa-sign-in-alt"></i> Login</span></a></li>
+
+
+
+					<li class="nav-item my-2">
+
+						<form action="#" th:action="@{/signup}" method="post">
+							<button class="btn btn-info rounded-pill">
+								<i class="fas fa-user-plus"></i> Signup
+							</button>
+						</form>
+
+					</li>
+
+
+
+				</th:block>
+
+
+
+
+
+			</ul>
+
+		</div>
+	</nav>
+
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::main})">
+<head>
+<meta charset="UTF-8" />
+</head>
+<title></title>
+<body>
+
+
+	<main class="container my-5">
+
+		<div class="row">
+			<div class="div col-md-6 offset-md-3">
+
+				<div class="card">
+
+					<div class="card-body bg-primary">
+
+						<div class="card">
+							<div class="card-body">
+
+								<div
+									class="card-header bg-info text-center text-white rounded-pill">
+
+									<h2>
+										<b>LogIn</b>
+									</h2>
+								</div>
+
+
+								<div th:if="${param.error}"
+									class="alert alert-danger rounded-pill mt-1 text-center">
+									<h6>Invaild username and password</h6>
+								</div>
+
+								<div th:if="${param.logout}"
+									class="alert alert-success rounded-pill mt-1 text-center">
+									<h6>You have successfully logged out</h6>
+								</div>
+
+								<hr />
+
+								<form action="#" th:action="@{/login}" method="post">
+
+									<div class="mb-3">
+										<label for="username" class="form-label">Username</label> <input
+											type="text" class="form-control" name="username"
+											id="username" placeholder="Enter Your Name...">
+									</div>
+
+									<div class="mb-3">
+										<label for="password" class="form-label">Password</label> <input
+											type="password" class="form-control" name="password"
+											id="password" placeholder="Enter Your Password...">
+									</div>
+
+									<div class="container text-right">
+
+										<a href="#" th:href="@{/forget-password}">Forget Password</a>
+
+									</div>
+
+									<hr />
+									<div class="container text-center">
+
+										<button type="submit" class="btn btn-primary">Submit</button>
+
+										<button type="reset" class="btn btn-warning">Reset</button>
+
+									</div>
+
+								</form>
+							</div>
+						</div>
+
+
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</main>
+
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::main})">
+<head>
+<meta charset="UTF-8" />
+</head>
+<title></title>
+<body>
+
+
+	<main class="container my-5">
+		<div class="row">
+			<div class="div col-md-6 offset-md-3">
+
+				<div class="card">
+
+					<div class="card-body bg-primary">
+
+						<div class="card">
+							<div class="card-body">
+
+								<div class="card-header bg-info text-center text-white rounded-pill">
+
+									<h2>
+										<b>SignUp</b>
+									</h2>
+								</div>
+
+
+								<div th:if="${session.message}"
+									th:classappend="${session.message.type}"
+									class="alert mt-2 rounded-pill" role="alert">
+									<h6 class="text-center" th:text="${session.message.content}"></h6>
+
+									<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+								</div>
+
+								<hr />
+
+								<form th:action="@{/signupProcess}" method="post">
+
+									<div class="input-group mb-3">
+										<span class="input-group-text bg-dark text-white"
+											id="username"><i class="fas fa-user"></i></span> <input
+											type="text" name="username" class="form-control"
+											placeholder="Enter Username..." aria-label="Username"
+											aria-describedby="username" required>
+									</div>
+
+									<div class="input-group mb-3">
+										<span class="input-group-text bg-dark text-white" id="email"><i
+											class="fas fa-at"></i></span> <input type="email"
+											class="form-control" name="email"
+											placeholder="Enter Email..." aria-label="email"
+											aria-describedby="email" required>
+									</div>
+
+									<div class="input-group mb-3">
+										<span class="input-group-text bg-dark text-white"
+											id="password"><i class="fas fa-key"></i></span> <input
+											type="password" class="form-control" name="password"
+											placeholder="Enter Password..." aria-label="password"
+											aria-describedby="password" required>
+									</div>
+									<div class="input-group mb-3">
+										<span class="input-group-text bg-dark text-white"
+											id="password"><i class="fas fa-key"></i></span> <input
+											type="password" class="form-control" name="confirmPass"
+											placeholder="Confirm Password..." aria-label="password"
+											aria-describedby="password" required>
+									</div>
+
+									<div class="input-group mb-3">
+										<span class="input-group-text bg-dark text-white" id="phone"><i
+											class="fas fa-phone"></i></span> <input type="tel"
+											class="form-control" name="phone"
+											placeholder="Enter Phone..." aria-label="phone"
+											aria-describedby="phone" required>
+									</div>
+
+									<div>
+
+										<lable>Gender : </lable>
+
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="radio" name="gender"
+												id="inlineRadio1" value="Male" checked> <label
+												class="form-check-label" for="inlineRadio1">Male</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="radio" name="gender"
+												id="inlineRadio2" value="Female"> <label
+												class="form-check-label" for="inlineRadio2">Female</label>
+										</div>
+
+									</div>
+
+									<hr />
+
+									<div class="container text-center">
+										<button class="btn btn-info mr-1" type="submit">signup</button>
+										<button class="btn btn-warning" type="reset">reset</button>
+									</div>
+
+								</form>
+
+							</div>
+						</div>
+
+
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</main>
+
+
+</body>
+</html>

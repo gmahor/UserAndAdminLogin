@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/base::layout(~{::main})">
+<head>
+<meta charset="UTF-8" />
+</head>
+<title></title>
+<body>
+
+	<main class="container my-5">
+
+		<div class="row">
+			<div class="div col-md-8 offset-md-2">
+				<div class="card mt-4 bg-info" th:object="${loginuser}">
+					<div class="card-body">
+						<div class="card">
+							<div class="card-boby">
+								<div class="container text-center mt-1">
+									<img style="width: 25%;" class="card-img-top" id="imgtag"
+										src="#" alt="profile" th:src="@{/img/user.png}" />
+								</div>
+
+								<ul class="list-group list-group-flush">
+
+									<li class="list-group-item text-primary text-center">
+										<h1 th:text="${loginuser.username}"></h1>
+									</li>
+
+									<li class="list-group-item text-center"><h5>
+											Email : <span th:text="${loginuser.email}"></span>
+										</h5></li>
+									<li class="list-group-item text-center"><h5>
+											Phone : <span th:text="${loginuser.phone}"></span>
+										</h5></li>
+									<li class="list-group-item text-center"><h5>
+											Gender : <span th:text="${loginuser.gender}"></span>
+										</h5></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</main>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/base::layout(~{::main})">
+<head>
+<meta charset="UTF-8" />
+</head>
+<title></title>
+<body>
+
+	<main class="container my-5">
+
+
+
+		<div class="row">
+			<div class="div col-md-8 offset-md-2">
+				<div class="card mt-4 bg-info">
+					<div class="card-body">
+						<div class="card">
+							<div class="card-boby">
+								<div
+									class="card-header bg-warning text-center text-dark rounded-pill">
+
+									<h2>
+										<b>Update User</b>
+									</h2>
+								</div>
+								<hr />
+
+								<form th:action="@{/user/updateProcess}" method="post"
+									th:object="${user}">
+									
+									<input type="hidden" name="id" th:value="${user.id}" />
+									
+									<input type="hidden" name="enable" th:value="${user.enable}" />
+
+
+									<div class="input-group mb-3">
+										<span class="input-group-text bg-dark text-white"
+											id="username"><i class="fas fa-user"></i></span> <input
+											type="text" name="username" th:value="${user.username}"
+											class="form-control" aria-label="Username"
+											aria-describedby="username">
+									</div>
+
+									<div class="input-group mb-3">
+										<span class="input-group-text bg-dark text-white" id="email"><i
+											class="fas fa-at"></i></span> <input type="email"
+											class="form-control" name="email" th:value="${user.email}"
+											aria-label="email" aria-describedby="email" required>
+									</div>
+
+
+									<input type="hidden" name="password" th:value="${user.password}"/>
+
+									<div class="input-group mb-3">
+										<span class="input-group-text bg-dark text-white" id="phn"><i
+											class="fas fa-phone"></i></span> <input type="text" name="phone"
+											class="form-control" th:value="${user.phone}"
+											aria-label="phn" aria-describedby="phn" required>
+									</div>
+
+								
+									<input type="hidden" name="gender" th:value="${user.gender}" />
+									<input type="hidden" name="role" th:value="${user.role}" />
+								
+									<hr />
+
+									<div class="container text-center">
+										<button class="btn btn-success mr-1" type="submit">Update</button>
+									</div>
+
+								</form>
+
+
+
+
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</main>
+
+
+
+
+</body>
+</html>

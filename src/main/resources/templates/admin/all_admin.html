@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/base::layout(~{::main})">
+<head>
+<meta charset="UTF-8" />
+</head>
+<title></title>
+<body>
+	<main class="container">
+		<div class="row">
+			<div class="div col-md-10 offset-md-1">
+				<div class="card mt-4 bg-info">
+					<div class="card-body">
+
+						<div class="card">
+							<div class="card-body">
+
+								<div
+									class="card-header text-center text-white bg-primary rounded-pill">
+									<u><h1>View All Admin</h1></u>
+								</div>
+								<hr />
+
+
+								<div class="table-responsive">
+									<table
+										class="table table-hover table-bordered border-secondary">
+										<thead class="table-dark">
+											<tr>
+												<th scope="col" class="text-center">U.ID</th>
+												<th scope="col" class="text-center">Username</th>
+												<th scope="col" class="text-center">Email</th>
+												<th scope="col" class="text-center">Phone</th>
+												<th scope="col" class="text-center">Role</th>
+												<th scope="col" class="text-center">Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="u:${users}">
+												<th scope="row" th:text="${u.id}" class="text-center"></th>
+												<td th:text="${u.username}" class="text-center"></td>
+												<td th:text="${u.email}" class="text-center"></td>
+												<td th:text="${u.phone}" class="text-center"></td>
+												<td th:text="${u.role}" class="text-center"></td>
+												<td class="text-center">
+
+													<form action="#" th:action="@{'/admin/update-user/'+${u.id}}" method="post">
+														<button class="btn btn-warning my-2">Update</button>
+													</form>
+													<form action="#"
+														th:action="@{'/admin/delete-user/'+${u.id}}" method="post">
+														<button class="btn btn-danger">Delete</button>
+													</form>
+
+												</td>
+											</tr>
+
+										</tbody>
+									</table>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</main>
+
+
+</body>
+</html>
