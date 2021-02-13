@@ -47,7 +47,7 @@ public class EmailService {
 		Session session = Session.getInstance(properties, new Authenticator() {
 
 			String username = "gouravmahor60@gmail.com";
-			String password = "rock$on1";
+			String password = "*******";
 
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
